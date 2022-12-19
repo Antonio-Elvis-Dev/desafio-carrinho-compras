@@ -18,7 +18,7 @@ export default function Routes() {
             }}/>
             <BottomTab.Screen name='Cart' component={Cart} options={{
                 tabBarIcon:({color})=>(
-                    <Icons name='cart' color={color} size={26}/>
+                    <Icons name='cart' color={color} size={30}/>
                 )
             }} />
         </BottomTab.Navigator>)
