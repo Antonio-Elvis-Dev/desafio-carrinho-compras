@@ -1,10 +1,10 @@
-import { View, Text, FlatList } from 'react-native'
+import { View, Text, FlatList, StyleSheet,SafeAreaView } from 'react-native'
 import React, { useState } from 'react'
 
 import List from '../List'
 
 export default function Home() {
-  const data = [
+  const [data, setData] = useState([
     {
       id: '1',
       nome: 'Coca',
@@ -30,12 +30,20 @@ export default function Home() {
       nome: 'Hamburguer',
       preco: 8.50
     },
-  ]
+  ])
   return (
-    <View>
+    <SafeAreaView style={styles.container}>
 
-      <FlatList data={data} keyExtractor={(item)=>item.key} 
-      renderItem={({item})=><List data={item} />} />
-    </View>
+      <FlatList data={data} keyExtractor={(item) => item.key}
+        renderItem={({ item }) => <List data={item} />} />
+    </SafeAreaView>
   )
 }
+
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    marginTop: 70
+  }
+})

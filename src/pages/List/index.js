@@ -1,4 +1,4 @@
-import { View, Text, StyleSheet, TouchableOpacity } from 'react-native'
+import { View, Text, StyleSheet, TouchableOpacity, SafeAreaView } from 'react-native'
 import React, { useState, createContext } from 'react'
 
 
@@ -17,7 +17,7 @@ export default function List({ data }) {
 
     }
     return (
-        <View style={styles.container}>
+        <SafeAreaView style={styles.container}>
 
             <View>
                 <Text>{data.nome}</Text>
@@ -34,12 +34,13 @@ export default function List({ data }) {
             <ItemContext.Provider value={{ handleAdd, handleRemove }}>
 
             </ItemContext.Provider>
-        </View>
+        </SafeAreaView>
     )
 }
 
 const styles = StyleSheet.create({
     container: {
+        // marginTop:10,
         marginHorizontal: 10,
         marginBottom: 5,
         borderWidth: 1,
