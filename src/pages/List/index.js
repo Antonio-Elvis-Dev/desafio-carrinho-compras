@@ -5,17 +5,8 @@ import React, { useState, createContext } from 'react'
 
 export const ItemContext = createContext({})
 
-export default function List({ data }) {
+export default function List({ data, addToCard }) {
 
-    const [valorTotal, setValorTotal] = useState(0)
-
-    function handleAdd() {
-        console.log(valorTotal)
-    }
-    function handleRemove() {
-        console.log(valorTotal)
-
-    }
     return (
         <SafeAreaView style={styles.container}>
 
@@ -25,15 +16,13 @@ export default function List({ data }) {
             </View>
             <View style={styles.areaButton}>
                 <TouchableOpacity
-                    onPress={handleAdd}
+                    onPress={addToCard}
                     style={styles.button}>
                     <Text style={styles.textButton}>+</Text>
                 </TouchableOpacity >
 
             </View>
-            <ItemContext.Provider value={{ handleAdd, handleRemove }}>
 
-            </ItemContext.Provider>
         </SafeAreaView>
     )
 }
@@ -59,7 +48,7 @@ const styles = StyleSheet.create({
         margin: 5,
         backgroundColor: '#00af2c',
         padding: 10,
-        borderRadius: 20,
+        borderRadius: 10,
 
     },
     textButton: {

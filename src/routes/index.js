@@ -1,5 +1,5 @@
 import { View, Text, StyleSheet } from 'react-native'
-import React from 'react'
+import React, { useContext } from 'react'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
 
 import Home from '../pages/Home'
@@ -7,8 +7,12 @@ import Cart from '../pages/Cart'
 import Icon from 'react-native-vector-icons/MaterialIcons'
 import Icons from 'react-native-vector-icons/EvilIcons'
 
+import {CartContext} from '../contexts/CartContexts'
+
 const BottomTab = createBottomTabNavigator()
 export default function Routes() {
+    
+    const {cart} = useContext(CartContext)
     return (
         <BottomTab.Navigator>
             <BottomTab.Screen name='Home' component={Home} options={{
@@ -21,7 +25,7 @@ export default function Routes() {
                 headerTitle: 'Meu Carrinho',
                 tabBarIcon: ({ color }) => (
                     <View>
-                        <Text style={styles.container}>3</Text>
+                        <Text style={styles.container}>{cart.length}</Text>
                         <View>
                             <Icons name='cart' color={color} size={30} />
                         </View>
@@ -38,6 +42,7 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         borderRadius: 10,
         marginRight:15,
-        fontSize:16
+        fontSize:16,
+        color:'#000'
     }
 })
