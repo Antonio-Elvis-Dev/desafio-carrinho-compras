@@ -3,20 +3,18 @@ import React, { useState, createContext } from 'react'
 
 
 
-export const ItemContext = createContext({})
-
-export default function List({ data, addToCard }) {
+export default function Product({ data, addToCart }) {
 
     return (
         <SafeAreaView style={styles.container}>
 
             <View>
                 <Text>{data.nome}</Text>
-                <Text>{data.preco}</Text>
+                <Text>R$ {data.preco}</Text>
             </View>
             <View style={styles.areaButton}>
                 <TouchableOpacity
-                    onPress={addToCard}
+                    onPress={addToCart}
                     style={styles.button}>
                     <Text style={styles.textButton}>+</Text>
                 </TouchableOpacity >

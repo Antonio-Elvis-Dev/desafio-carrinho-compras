@@ -25,7 +25,7 @@ export default function Routes() {
                 headerTitle: 'Meu Carrinho',
                 tabBarIcon: ({ color }) => (
                     <View>
-                        <Text style={styles.container}>{cart.length}</Text>
+                        <Text style={styles.container}>{cart?.length}</Text>
                         <View>
                             <Icons name='cart' color={color} size={30} />
                         </View>
