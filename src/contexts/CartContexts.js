@@ -19,7 +19,7 @@ export default function CartProvider({ children }) {
             cartList[indexItem].total = cartList[indexItem].preco * cartList[indexItem].amount
 
             setCart(cartList)
-            console.log(cartList)
+            // console.log(cartList)
             return
         }
         let data = {
@@ -28,7 +28,7 @@ export default function CartProvider({ children }) {
             total: newItem.preco
         }
         setCart(products => [...products, data])
-        console.log([...cart, data])
+        // console.log([...cart, data])
 
     }
 

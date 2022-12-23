@@ -1,16 +1,19 @@
-import { View, Text } from 'react-native'
-import React,{useContext} from 'react'
+import { View, Text, FlatList, SafeAreaView, StyleSheet } from 'react-native'
+import React, { useContext } from 'react'
 
-import {CartContext} from '../../contexts/CartContexts'
+import { CartContext } from '../../contexts/CartContexts'
 
+import CartProducts from '../../components/CartProducts'
 
 export default function Cart() {
-  
-  const {cart} = useContext(CartContext)
-  // console.log(typeof(cart))
+  const { cart,addItemCart } = useContext(CartContext)
   return (
-    <View>
-      <Text>Preço: {cart[1].preco} </Text>
-    </View>
+    <SafeAreaView 
+    // style={styles.container}
+    >
+ 
+      <FlatList data={cart} keyExtractor={(item) => String(item.id)}
+        renderItem={({ item }) => <CartProducts data={item}  />} />
+    </SafeAreaView>
   )
 }
