@@ -1,38 +1,30 @@
+import 'react-native-gesture-handler';
 import { View, Text, StyleSheet } from 'react-native'
 import React, { useContext } from 'react'
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+
+import {createStackNavigator} from '@react-navigation/stack'
 
 import Home from '../pages/Home'
 import Cart from '../pages/Cart'
 import Icon from 'react-native-vector-icons/MaterialIcons'
-import Icons from 'react-native-vector-icons/EvilIcons'
 
 import {CartContext} from '../contexts/CartContexts'
 
-const BottomTab = createBottomTabNavigator()
+const Stack = createStackNavigator()
 export default function Routes() {
     
     const {cart} = useContext(CartContext)
     return (
-        <BottomTab.Navigator>
-            <BottomTab.Screen name='Home' component={Home} options={{
+        <Stack.Navigator>
+            <Stack.Screen name='Home' component={Home} options={{
                 headerShown: false,
-                tabBarIcon: ({ color }) => (
-                    <Icon name='home' color={color} size={26} />
-                )
+                
             }} />
-            <BottomTab.Screen name='Cart' component={Cart} options={{
+            <Stack.Screen name='Cart' component={Cart} options={{
                 headerTitle: 'Meu Carrinho',
-                tabBarIcon: ({ color }) => (
-                    <View>
-                        <Text style={styles.container}>{cart?.length}</Text>
-                        <View>
-                            <Icons name='cart' color={color} size={30} />
-                        </View>
-                    </View>
-                )
+                
             }} />
-        </BottomTab.Navigator>)
+        </Stack.Navigator>)
 }
 
 

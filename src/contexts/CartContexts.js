@@ -31,10 +31,28 @@ export default function CartProvider({ children }) {
         // console.log([...cart, data])
 
     }
+    function removeItemCart(product) {
+        const indexItem = cart.findIndex(item => item.id === product.id)
 
+        if (cart[indexItem]?.amount > 1) {
+            let cartList = cart
+
+            cartList[indexItem].amount -= 1
+            cartList[indexItem].total -= cartList[indexItem].preco
+
+            setCart(cartList)
+            return
+        }
+
+        const removeItem = cart.filter(item => item.id !== product.id)
+
+        setCart(removeItem)
+        // console.log([...cart, data])
+
+    }
     return (
         <CartContext.Provider
-            value={{ cart, addItemCart }}
+            value={{ cart, addItemCart, removeItemCart }}
         >
             {children}
         </CartContext.Provider>

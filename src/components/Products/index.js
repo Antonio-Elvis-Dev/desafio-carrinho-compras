@@ -27,9 +27,9 @@ export default function Product({ data, addToCart }) {
 
 const styles = StyleSheet.create({
     container: {
-        // marginTop:10,
+        borderRadius: 10,
         marginHorizontal: 10,
-        marginBottom: 5,
+        marginBottom: 15,
         borderWidth: 1,
         padding: 10,
         flexDirection: 'row',
