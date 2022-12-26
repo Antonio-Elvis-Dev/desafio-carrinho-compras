@@ -19,22 +19,48 @@ export default function Home() {
       id: '2',
       nome: 'Pastel',
 
-      preco: 8.50
+      preco: 4.50
     },
     {
       id: '3',
       nome: 'Sorvete',
-      preco: 8.50
+      preco: 3.50
     },
     {
       id: '4',
       nome: 'Fanta',
-      preco: 8.50
+      preco: 7.50
     },
     {
       id: '5',
       nome: 'Hamburguer',
+      preco: 10.50
+    },
+    {
+      id: '6',
+      nome: 'Frango',
       preco: 8.50
+    },
+    {
+      id: '7',
+      nome: 'Queijo',
+
+      preco: 4.50
+    },
+    {
+      id: '8',
+      nome: 'Guaraná',
+      preco: 3.50
+    },
+    {
+      id: '9',
+      nome: 'Pão',
+      preco: 7.50
+    },
+    {
+      id: '10',
+      nome: 'Doce',
+      preco: 10.50
     },
   ])
 

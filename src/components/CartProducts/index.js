@@ -8,7 +8,6 @@ export default function CartProducts({ data, addAmount, removeAmount }) {
     const [amount, setAmount] = useState(data?.amount)
     const [preco, setPreco] = useState(data?.preco)
 
-    const { addItemCart, removeItemCart } = useContext(CartContext)
 
     function handleIncrease() {
         addAmount()
@@ -51,12 +50,11 @@ const styles = StyleSheet.create({
     container: {
         borderWidth: 1,
         borderColor: '#9e8989',
-        marginHorizontal: 15,
         flexDirection: 'row',
         justifyContent: 'space-between',
         padding: 10,
-        marginBottom: 15,
-        borderRadius: 10
+        borderRadius: 10,
+        marginBottom:12
     },
     title: {
         fontWeight: 'bold',

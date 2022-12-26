@@ -8,14 +8,38 @@ import CartProducts from '../../components/CartProducts'
 export default function Cart() {
   const { cart, addItemCart, removeItemCart } = useContext(CartContext)
 
-  
+
   return (
     <SafeAreaView
-    // style={styles.container}
+    style={styles.container}
     >
 
-      <FlatList data={cart} keyExtractor={(item) => String(item.id)}
-        renderItem={({ item }) => <CartProducts data={item} addAmount={()=>addItemCart(item)} removeAmount={()=>removeItemCart(item)}/>} />
+      <FlatList
+        data={cart}
+        keyExtractor={(item) => String(item.id)}
+        ListEmptyComponent={() => <Text>Nenhum item no Carrinho</Text>}
+        renderItem={({ item }) => <CartProducts
+          data={item}
+          addAmount={() => addItemCart(item)}
+          removeAmount={() => removeItemCart(item)} />}
+
+        ListFooterComponent={() => <Text style={styles.total}>Total R$ 190.00</Text>}
+      />
     </SafeAreaView>
   )
 }
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fafafa',
+    paddingStart: 14,
+    paddingEnd: 14,
+    paddingTop: 14
+  },
+  total: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 24
+  }
+})
