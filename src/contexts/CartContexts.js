@@ -7,7 +7,7 @@ export const CartContext = createContext({})
 export default function CartProvider({ children }) {
 
     const [cart, setCart] = useState([])
-
+    const [total, setTotal] = useState(0)
 
     function addItemCart(newItem) {
 
@@ -19,7 +19,7 @@ export default function CartProvider({ children }) {
             cartList[indexItem].total = cartList[indexItem].preco * cartList[indexItem].amount
 
             setCart(cartList)
-            // console.log(cartList)
+            totalResultCart(cartList)
             return
         }
         let data = {
@@ -28,6 +28,8 @@ export default function CartProvider({ children }) {
             total: newItem.preco
         }
         setCart(products => [...products, data])
+        totalResultCart([...cart, data])
+
         // console.log([...cart, data])
 
     }
@@ -41,18 +43,27 @@ export default function CartProvider({ children }) {
             cartList[indexItem].total -= cartList[indexItem].preco
 
             setCart(cartList)
+            totalResultCart(cartList)
             return
         }
 
         const removeItem = cart.filter(item => item.id !== product.id)
 
         setCart(removeItem)
+        totalResultCart(removeItem)
         // console.log([...cart, data])
 
     }
+
+    function totalResultCart(items) {
+        let myCart = items
+        let result = myCart.reduce((acc, obj) => { return acc + obj.total }, 0)
+        setTotal(result.toFixed(2))
+    }
+
     return (
         <CartContext.Provider
-            value={{ cart, addItemCart, removeItemCart }}
+            value={{ cart, addItemCart, removeItemCart, total }}
         >
             {children}
         </CartContext.Provider>

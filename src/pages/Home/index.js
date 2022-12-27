@@ -65,9 +65,9 @@ export default function Home() {
   ])
 
   const navigation = useNavigation()
-  // TODO pega o item que foi clicado
+  
 
-  function handleAddCart(item) {
+  function handleAddCart(item) { // TODO pega o item que foi clicado
     addItemCart(item)
 
   }
@@ -79,10 +79,12 @@ export default function Home() {
         <Text style={styles.title}>Lista de Produtos</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Cart')}>
 
-          <View style={styles.dot}>
+         {cart.length >=1 &&(
+           <View style={styles.dot}>
 
-            <Text >{cart?.length}</Text>
-          </View>
+           <Text >{cart?.length}</Text>
+         </View>
+         )}
           <Icons name='cart' size={40} />
 
 

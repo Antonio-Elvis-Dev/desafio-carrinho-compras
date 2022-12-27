@@ -6,7 +6,7 @@ import { CartContext } from '../../contexts/CartContexts'
 import CartProducts from '../../components/CartProducts'
 
 export default function Cart() {
-  const { cart, addItemCart, removeItemCart } = useContext(CartContext)
+  const { cart,total, addItemCart, removeItemCart } = useContext(CartContext)
 
 
   return (
@@ -23,7 +23,7 @@ export default function Cart() {
           addAmount={() => addItemCart(item)}
           removeAmount={() => removeItemCart(item)} />}
 
-        ListFooterComponent={() => <Text style={styles.total}>Total R$ 190.00</Text>}
+        ListFooterComponent={() => <Text style={styles.total}>Total R$ {total}</Text>}
       />
     </SafeAreaView>
   )
